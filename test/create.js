@@ -1,5 +1,5 @@
 /**
- *  test/initialize.js
+ *  test/create.js
  *
  *  David Janes
  *  IOTDB
@@ -26,16 +26,21 @@ const _ = require("iotdb-helpers")
 
 const assert = require("assert")
 
-const signedzip = require("..")
+const szip = require("..")
 const _util = require("./_util")
 
-describe("initialize", function() {
+describe("create", function() {
     let self = {}
 
     before(function(done) {
         _.promise(self)
-            .then(_util.initialize)
-            .then(_util.load)
+            .add("szip$cfg", {})
+            .then(fs.read.utf8.p(path.join(__dirname, "data", "public.cer.pem")))
+            .add("document:szip$cfg.certificate")
+
+            .then(fs.read.utf8.p(path.join(__dirname, "data", "private.key.pem")))
+            .add("document:szip$cfg.private_key")
+
             .make(sd => {
                 self = sd
             })
@@ -45,7 +50,13 @@ describe("initialize", function() {
     describe("good", function() {
         it("works", function(done) {
             _.promise(self)
+                .then(szip.initialize)
+
+                .add("path", "some path")
+                .then(fs.list.recursive)
+                .then(szip.add.all)
+
                 .end(done)
-        })
+        }iiii)
     })
 })
