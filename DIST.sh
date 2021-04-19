@@ -7,7 +7,7 @@
 #
 
 exit 0
-PACKAGE=iotdb-signedzip
+PACKAGE=iotdb-szip
 DIST_ROOT=/var/tmp/.dist.$$
 
 if [ ! -d "$DIST_ROOT" ]

@@ -1,2 +1,2 @@
-# iotdb-signed-zip
-Signed ZIP files
+# iotdb-szip
+PPK Signed ZIP files

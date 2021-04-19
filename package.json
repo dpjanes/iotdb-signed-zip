@@ -1,22 +1,22 @@
 {
     "author": "David P. Janes <davidjanes@davidjanes.com>",
     "bugs": {
-        "url": "https://github.com/dpjanes/iotdb-signedzip/issues"
+        "url": "https://github.com/dpjanes/iotdb-szip/issues"
     }, 
     "dependencies": {
         "iotdb-helpers": "~3.2.3"
     }, 
-    "description": "POP Interface for SignedZip", 
+    "description": "PPK Signed ZIP files", 
     "devDependencies": {
     }, 
-    "homepage": "https://github.com/dpjanes/node-iotdb", 
+    "homepage": "https://github.com/dpjanes/iotdb-szip",
     "license": "Apache-2.0", 
     "main": "index.js", 
-    "name": "iotdb-signedzip", 
+    "name": "iotdb-szip", 
     "private": false, 
     "repository": {
         "type": "git", 
-        "url": "https://github.com/dpjanes/iotdb-signedzip"
+        "url": "https://github.com/dpjanes/iotdb-szip"
     }, 
     "scripts": {
         "cover": "nyc --reporter=html mocha --recursive", 
