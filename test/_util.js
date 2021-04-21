@@ -38,10 +38,10 @@ const initialize = _.promise((self, done) => {
 
         .add("zip$cfg", {})
         .then(fs.read.utf8.p(path.join(__dirname, "data", "public.cer.pem")))
-        .add("document:zip$cfg.certificate")
+        .add("document:certificate")
 
         .then(fs.read.utf8.p(path.join(__dirname, "data", "private.key.pem")))
-        .add("document:zip$cfg.private_key")
+        .add("document:private_key")
 
         .end(done, self, initialize)
 })
@@ -53,7 +53,8 @@ initialize.requires = {
 initialize.accepts = {
 }
 initialize.produces = {
-    zip$cfg: _.is.Dictionary,
+    private_key: _.is.String,
+    certificate: _.is.String,
 }
 
 /**
