@@ -30,7 +30,7 @@ const _util = require("./_util")
 const assert = require("assert")
 const path = require("path")
 
-describe("all", function() {
+describe("sign", function() {
     const FILENAMES = [
         "contents/a.json",
         "contents/icon.png",
