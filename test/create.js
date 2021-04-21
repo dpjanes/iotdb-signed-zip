@@ -26,20 +26,19 @@ const _ = require("iotdb-helpers")
 
 const assert = require("assert")
 
-const szip = require("..")
-const _util = require("./_util")
+const zip = require("..")
 
 describe("create", function() {
     let self = {}
 
     before(function(done) {
         _.promise(self)
-            .add("szip$cfg", {})
+            .add("zip$cfg", {})
             .then(fs.read.utf8.p(path.join(__dirname, "data", "public.cer.pem")))
-            .add("document:szip$cfg.certificate")
+            .add("document:zip$cfg.certificate")
 
             .then(fs.read.utf8.p(path.join(__dirname, "data", "private.key.pem")))
-            .add("document:szip$cfg.private_key")
+            .add("document:zip$cfg.private_key")
 
             .make(sd => {
                 self = sd
@@ -50,13 +49,13 @@ describe("create", function() {
     describe("good", function() {
         it("works", function(done) {
             _.promise(self)
-                .then(szip.initialize)
+                .then(zip.initialize)
 
                 .add("path", "some path")
                 .then(fs.list.recursive)
-                .then(szip.add.all)
+                .then(zip.add.all)
 
                 .end(done)
-        }iiii)
+        })
     })
 })
