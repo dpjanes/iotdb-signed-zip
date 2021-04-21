@@ -63,4 +63,24 @@ describe("sign", function() {
 
             .end(done, {})
     })
+    it("verify works", function(done) {
+        _.promise()
+            .then(_util.initialize)
+            .then(zip.initialize.open.p(path.join(__dirname, "data", "sample-signed.out.zip")))
+            .then(zip.verify)
+
+            .make(sd => {
+                /*
+                const got = _.keys(sd.zip.files)
+                const want = [ FILENAMES[0], ]
+
+                got.sort()
+                want.sort()
+
+                assert.deepEqual(got, want)
+                */
+            })
+
+            .end(done, {})
+    })
 })

@@ -43,6 +43,10 @@ const initialize = _.promise((self, done) => {
         .then(fs.read.utf8.p(path.join(__dirname, "data", "private.key.pem")))
         .add("document:zip$cfg.private_key")
 
+        // likely will be deleting this
+        .then(fs.read.utf8.p(path.join(__dirname, "data", "public.key.pem")))
+        .add("document:zip$cfg.public_key")
+
         .end(done, self, initialize)
 })
 
