@@ -38,7 +38,7 @@ const initialize = _.promise((self, done) => {
 
         .add("zip$cfg", {})
         .then(fs.read.utf8.p(path.join(__dirname, "data", "public.cer.pem")))
-        .add("document:zip$cfg.certificate")
+        .add("document:zip$cfg.public_cer")
 
         .then(fs.read.utf8.p(path.join(__dirname, "data", "private.key.pem")))
         .add("document:zip$cfg.private_key")
