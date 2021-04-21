@@ -25,6 +25,7 @@
 const _ = require("iotdb-helpers")
 const zip = require("..")
 const fs = require("iotdb-fs")
+const _util = require("./_util")
 
 const assert = require("assert")
 const path = require("path")
@@ -56,6 +57,7 @@ describe("write", function() {
             const filename = "contents/icon.png"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize)
                 .add({
                     path: filename,
@@ -78,6 +80,7 @@ describe("write", function() {
             const filename = "contents/unicode.txt"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize)
                 .add({
                     path: filename,
@@ -103,6 +106,7 @@ describe("write", function() {
             const filename = "contents/unicode.txt"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize)
                 .add({
                     path: filename,

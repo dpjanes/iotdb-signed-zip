@@ -25,6 +25,7 @@
 const _ = require("iotdb-helpers")
 const fs = require("iotdb-fs")
 const zip = require("..")
+const _util = require("./_util")
 
 const assert = require("assert")
 const path = require("path")
@@ -40,6 +41,7 @@ describe("initialize", function() {
     describe("initialize", function() {
         it("no parameters - works", function(done) {
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize)
                 .make(sd => {
                     assert.ok(sd.zip)
@@ -53,6 +55,7 @@ describe("initialize", function() {
             _.promise({
                 path: zipfile,
             })
+                .then(_util.initialize)
                 .then(fs.read.buffer)
                 .then(zip.initialize.load)
                 .make(sd => {
@@ -67,6 +70,7 @@ describe("initialize", function() {
             _.promise({
                 path: zipfile,
             })
+                .then(_util.initialize)
                 .then(zip.initialize.open)
                 .make(sd => {
                     assert.ok(sd.zip)
@@ -78,6 +82,7 @@ describe("initialize", function() {
     describe("initialize.open.p", function() {
         it("path parameter - works", function(done) {
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .make(sd => {
                     assert.ok(sd.zip)

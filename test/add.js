@@ -25,6 +25,7 @@
 const _ = require("iotdb-helpers")
 const zip = require("..")
 const fs = require("iotdb-fs")
+const _util = require("./_util")
 
 const assert = require("assert")
 const path = require("path")
@@ -38,6 +39,7 @@ describe("all", function() {
 
     it("add works", function(done) {
         _.promise()
+            .then(_util.initialize)
             .then(zip.initialize)
             .add("zip$root", path.join(__dirname, "data"))
             .add("path", FILENAMES[0])
@@ -56,6 +58,7 @@ describe("all", function() {
     })
     it("add.all works", function(done) {
         _.promise()
+            .then(_util.initialize)
             .then(zip.initialize)
             .add("zip$root", path.join(__dirname, "data"))
             .add("paths", FILENAMES)
@@ -74,6 +77,7 @@ describe("all", function() {
     })
     it("add.all works with fs", function(done) {
         _.promise()
+            .then(_util.initialize)
             .add("path", path.join(__dirname, "data", "contents"))
             .then(fs.list)
 

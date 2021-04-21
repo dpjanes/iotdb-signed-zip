@@ -25,6 +25,7 @@
 const _ = require("iotdb-helpers")
 const zip = require("..")
 const fs = require("iotdb-fs")
+const _util = require("./_util")
 
 const assert = require("assert")
 const path = require("path")
@@ -56,6 +57,7 @@ describe("read", function() {
             const filename = "contents/icon.png"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read)
@@ -70,6 +72,7 @@ describe("read", function() {
             const filename = "contents/unicode.txt"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read)
@@ -86,6 +89,7 @@ describe("read", function() {
             const filename = "contents/icon.png"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read.buffer)
@@ -100,6 +104,7 @@ describe("read", function() {
             const filename = "contents/unicode.txt"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read.buffer)
@@ -116,6 +121,7 @@ describe("read", function() {
             const filename = "contents/unicode.txt"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read.utf8)
@@ -132,6 +138,7 @@ describe("read", function() {
             const contents = "Hello World"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .add("otherwise", contents))
@@ -148,6 +155,7 @@ describe("read", function() {
             const filename = "contents/icon.png"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read.utf8)
@@ -164,6 +172,7 @@ describe("read", function() {
             const filename = "contents/a.json"
 
             _.promise()
+                .then(_util.initialize)
                 .then(zip.initialize.open.p(zipfile))
                 .add("path", filename)
                 .then(zip.read.json)
